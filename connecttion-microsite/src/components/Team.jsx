@@ -6,10 +6,10 @@ function Team() {
   const publicImagePath = "/src/assets/team/";
 
   return (
-    <div className="flex flex-wrap gap-4 justify-center">
+    <div className="flex flex-wrap gap-4 justify-center max-w-6xl mx-auto">
       {team.map((element, index) => {
         const card = (
-          <div className="flex flex-col max-w-sm rounded-lg shadow-sm overflow-hidden">
+          <div className="flex flex-col w-full max-w-sm rounded-lg shadow-sm overflow-hidden" style={{flexBasis: 'calc(33.333% - 1rem)', minWidth: '300px'}}>
             <div key={index} className="w-full h-64 bg-none relative">
               <img
                 src={`${publicImagePath}${element.image}`}

@@ -1,5 +1,6 @@
 import connecttion_text from "../assets/connecttion/connecttion_text_blue.png";
 import github_logo from "../assets/github_logo.png";
+import jira_logo from "../assets/jira_logo.png";
 
 const NavBar = () => {
   return (
@@ -38,8 +39,11 @@ const NavBar = () => {
             </details>
           </li>
         </ul>
-        <a className="cursor-pointer px-3">
+        <a href="https://github.com/pei-connecttion" className="cursor-pointer px-3">
             <img src={github_logo} alt="Our GitHub" className="h-6" />
+        </a>
+        <a href="https://github.com/pei-connecttion" className="cursor-pointer px-3">
+            <img src={jira_logo} alt="Our Jira" className="h-6" />
         </a>
       </div>
     </div>
