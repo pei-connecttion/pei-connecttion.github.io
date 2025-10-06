@@ -13,6 +13,7 @@
     "@babel/runtime": "^7.28.4",
     "@tailwindcss/vite": "^4.1.14",
     "amqplib": "^0.10.9",
+    "daisyui": "^5.1.27",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
