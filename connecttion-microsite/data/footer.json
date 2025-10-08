@@ -1,79 +1,44 @@
 {
   "logo": "/images/footer-logo.svg",
   "logo_url": "/",
-  "copyright": "MyCompany. All rights reserved.",
-  "social": [
-    {
-      "link": "https://www.facebook.com/mycompany",
-      "icon": "ph-facebook-logo",
-      "icon_alt": "facebook"
-    },
-    {
-      "link": "https://www.instagram.com/mycompany",
-      "icon": "ph-instagram-logo",
-      "icon_alt": "instagram"
-    },
-    {
-      "link": "https://www.twitter.com/mycompany",
-      "icon": "ph-twitter-logo",
-      "icon_alt": "twitter"
-    },
-    {
-      "link": "https://www.github.com/mycompany",
-      "icon": "ph-github-logo",
-      "icon_alt": "github"
-    },
-    {
-      "link": "https://www.youtube.com/mycompany",
-      "icon": "ph-youtube-logo",
-      "icon_alt": "youtube"
-    }
-  ],
+  "copyright": "connecTTion. All rights reserved.",
   "sections": [
     {
-      "title": "Main Pages",
+      "title": "Project Advisors",
       "links": [
         {
-          "text": "Home",
-          "link": "/"
+          "text": "Osvaldo Pacheco",
+          "link": "https://www.ua.pt/pt/p/10313442"
         },
         {
-          "text": "Features",
-          "link": "/features/"
-        },
-        {
-          "text": "Price",
-          "link": "/pricing/"
-        },
-        {
-          "text": "About",
-          "link": "/about/"
+          "text": "Daniel Ferreira",
+          "link": "https://www.ua.pt/pt/p/80653922"
         }
       ]
     },
     {
-      "title": "Community",
+      "title": "Project Team",
       "links": [
         {
-          "text": "Blog",
-          "link": "/blog/"
-        },
-        {
-          "text": "RSS Feed",
-          "link": "/feed.xml"
+          "text": "Team Members",
+          "link": "/about"
         }
       ]
     },
     {
-      "title": "Company",
+      "title": "Other Links",
       "links": [
         {
-          "text": "Contact",
-          "link": "/contact/"
+          "text": "GitHub",
+          "link": "https://www.github.com/pei-connecttion"
         },
         {
-          "text": "Privacy Policy",
-          "link": "/privacy/"
+          "text": "Jira",
+          "link": "https://www.jira.com"
+        },
+        {
+          "text": "Figma",
+          "link": "https://www.figma.com"
         }
       ]
     }

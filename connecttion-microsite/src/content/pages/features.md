@@ -53,26 +53,4 @@ content_blocks:
       text: Try This Free
     reversed: false
 
-  - _bookshop_name: global/testimonial
-    title: Build relationships that
-    title_suffix: last
-    description: Customers from around the world are building game changing email marketing campaigns.
-    slider:
-      - image: /images/testimonial/logo-2.jpg
-        image_alt: Profile photo of Pete Fish
-        author: Pete Fish
-        designation: CMO at Clear Appeal
-        message: Sendit has taken Clear Appeal to the next level with it's beautiful targetted email campaigns.
-
-      - image: /images/testimonial/logo-3.jpg
-        image_alt: Profile photo of Dolly Watson
-        author: Dolly Watson
-        designation: Digital Marketer at Time Cop
-        message: Wow, what a difference Sendit has made. My customers are more engaged than ever.
-
-      - image: /images/testimonial/logo-4.jpg
-        image_alt: Profile photo of Simon Moriarty
-        author: Simon Moriarty
-        designation: Head of Marketing at Pinnacle Mines
-        message: I can't imagine life without Sendit now, I have no idea how we were surviving before.
 ---

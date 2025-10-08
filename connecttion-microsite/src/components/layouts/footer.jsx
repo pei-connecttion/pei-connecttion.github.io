@@ -12,24 +12,9 @@ export default function Footer({}) {
                   <img src={footer.logo} alt="logo" />
                 </a>
                 <p>
-                  © Copyright <span>{new Date().getFullYear()}</span>{" "}
+                  © Copyright {" 2026 "}
                   {footer.copyright}
                 </p>
-              </div>
-              <div className="social-icon">
-                <ul className="list-unstyled">
-                  {footer.social.map((link, i) => (
-                    <li key={i}>
-                      <a href={`${link.link}`}>
-                        <i className={link.icon} aria-hidden="true">
-                          <span className="visually-hidden">
-                            {link.icon_alt}
-                          </span>
-                        </i>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
 
