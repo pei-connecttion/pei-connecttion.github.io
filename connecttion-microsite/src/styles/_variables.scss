@@ -50,3 +50,24 @@ $base-transition: all 0.5s ease-in-out;
 //Others Varibles
 $base-border-width: 1px;
 $base-border-radius: 8px;
+
+/* export SCSS colors to CSS custom properties */
+:root {
+  --color-primary: #{$color-primary};
+  --color-primary-light: #{$color-primary-light};
+  --color-anchor: #{$color-anchor};
+  --nav-icon-default: #000; /* ícones pretos por defeito */
+}
+
+/* nav icons: default preto, no hover usa a cor primaria */
+.nav-icon {
+  color: var(--nav-icon-default);
+  display: inline-flex;
+  align-items: center;
+  transition: color .15s ease, transform .12s ease;
+}
+.nav-icon:hover {
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
