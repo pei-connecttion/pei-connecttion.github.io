@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import navigation from "@data/navigation.json";
+import { FaGithub } from "react-icons/fa";
+import { SiFigma, SiJira } from "react-icons/si";
 
 export default function Navigation({ pageUrl }) {
   const [isSticky, setSticky] = useState(false);
@@ -50,7 +52,7 @@ export default function Navigation({ pageUrl }) {
         >
           <div className="container-fluid">
             <a className="navbar-brand" href="/">
-              <img src={navigation.logo} alt="Nav-Logo" />
+              <img src={navigation.logo } alt="Nav-Logo" />
             </a>
             <button
               className="navbar-toggler"
@@ -165,19 +167,30 @@ export default function Navigation({ pageUrl }) {
               ))}
             </ul>
           </div>
-          { navigation.enable_nav_btn ? (
-            <>
-            <div className="d-none d-lg-block">
-              <div className="nav-item">
-                <a
-                  href={`${navigation.nav_btn?.link}`}
-                  className="btn btn-sm btn-links"
-                >
-                  {navigation.nav_btn?.text}
-                </a>
-              </div>
+          {navigation.social_links && navigation.social_links.length > 0 ? (
+      <div className="d-none d-lg-flex align-items-center gap-3">
+        {navigation.social_links.map((s, idx) => {
+          const iconComponents = {
+            github: FaGithub,
+            figma:  SiFigma,
+            jira:   SiJira
+          };
+          const Icon = iconComponents[s.name] || FaGithub;
+
+          return (
+            <a
+              key={idx}
+              href={s.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.name}
+              className="nav-icon"
+            >
+              <Icon size={24} />
+            </a>
+          );
+        })}
             </div>
-            </>
           ) : null }
         </div>
         </nav>

@@ -1,5 +1,5 @@
 {
-  "logo": "/images/logo.svg",
+  "logo": "/images/connecttion-logo-blue.png",
   "nav_items": [
     {
       "text": "Home",
@@ -8,50 +8,59 @@
       "dropdown": []
     },
     {
-      "text": "Features",
+      "text": "Minutes",
       "link": "/features/",
       "enable_dropdown": false,
       "dropdown": []
     },
     {
-      "text": "Pricing",
+      "text": "Calendar",
       "link": "/pricing/",
       "enable_dropdown": false,
       "dropdown": []
     },
     {
-      "text": "About",
+      "text": "Team",
       "link": "/about/",
       "enable_dropdown": false,
       "dropdown": []
     },
     {
-      "text": "Blog",
+      "text": "Milestones",
       "link": "/blog/",
       "enable_dropdown": true,
       "dropdown": [
         {
-          "dropdown_text": "All Articles",
+          "dropdown_text": "M1 - Inception",
           "dropdown_link": "/blog"
         },
         {
-          "dropdown_text": "Marketing",
+          "dropdown_text": "M2 - Elaboration",
           "dropdown_link": "/tags/marketing/"
         },
         {
-          "dropdown_text": "Technology",
+          "dropdown_text": "M3 - Construction",
+          "dropdown_link": "/tags/technology/"
+        },
+        {
+          "dropdown_text": "M4 - Transition",
           "dropdown_link": "/tags/technology/"
         }
       ]
     },
     {
-      "text": "Contact",
+      "text": "Documentation",
       "link": "/contact/",
       "enable_dropdown": false,
       "dropdown": []
     }
   ],
-  "enable_nav_btn": true,
+  "social_links": [
+    { "name": "github", "link": "https://github.com/pei-connecttion", "icon": "/images/github-icon.png"},
+    { "name": "figma", "link": "https://www.figma.com/yourfile", "icon": "/" },
+    { "name": "jira", "link": "https://yourcompany.atlassian.net", "icon": "/images/jira-icon.png" }
+  ],
+  "enable_nav_btn": false,
   "nav_btn": {
     "text": "Get Started",
     "link": "/signup/"
