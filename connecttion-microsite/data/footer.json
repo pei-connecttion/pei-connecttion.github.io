@@ -1,0 +1,46 @@
+{
+  "logo": "/images/connecttion-logo-blue.png",
+  "logo_url": "/",
+  "copyright": "connecTTion. All rights reserved.",
+  "sections": [
+    {
+      "title": "Project Advisors",
+      "links": [
+        {
+          "text": "Osvaldo Pacheco",
+          "link": "https://www.ua.pt/pt/p/10313442"
+        },
+        {
+          "text": "Daniel Ferreira",
+          "link": "https://www.ua.pt/pt/p/80653922"
+        }
+      ]
+    },
+    {
+      "title": "Project Team",
+      "links": [
+        {
+          "text": "Team Members",
+          "link": "/about"
+        }
+      ]
+    },
+    {
+      "title": "Other Links",
+      "links": [
+        {
+          "text": "GitHub",
+          "link": "https://www.github.com/pei-connecttion"
+        },
+        {
+          "text": "Jira",
+          "link": "https://www.jira.com"
+        },
+        {
+          "text": "Figma",
+          "link": "https://www.figma.com"
+        }
+      ]
+    }
+  ]
+}
