@@ -1,36 +1,110 @@
-- name: Detect package manager
-  id: detect-package-manager
-  working-directory: ${{ env.BUILD_PATH }}
-  run: |
-    set -euo pipefail
+# Sample workflow for building and deploying an Astro site to GitHub Pages
+name: Deploy Astro site to Pages
 
-    echo "Listing files for sanity:"
-    pwd
-    ls -la
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
 
-    if [ -f "yarn.lock" ]; then
-      {
-        echo "manager=yarn"
-        echo "command=install"
-        echo "runner=yarn"
-        echo "lockfile=yarn.lock"
-      } >> "$GITHUB_OUTPUT"
-    elif [ -f "package-lock.json" ]; then
-      {
-        echo "manager=npm"
-        echo "command=ci"
-        echo "runner=npx --no-install"
-        echo "lockfile=package-lock.json"
-      } >> "$GITHUB_OUTPUT"
-    elif [ -f "pnpm-lock.yaml" ]; then
-      {
-        echo "manager=pnpm"
-        echo "command=install --frozen-lockfile"
-        echo "runner=pnpm"
-        echo "lockfile=pnpm-lock.yaml"
-      } >> "$GITHUB_OUTPUT"
-    else
-      echo "Unable to determine package manager in $(pwd)" >&2
-      exit 1
-    fi
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+env:
+  # If your Astro project lives in a subfolder, set this to that folder (e.g. "web")
+  BUILD_PATH: "."
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Detect package manager
+          id: detect-package-manager
+          working-directory: ${{ env.BUILD_PATH }}
+          run: |
+            set -euo pipefail
+
+            echo "Listing files for sanity:"
+            pwd
+            ls -la
+
+            if [ -f "yarn.lock" ]; then
+              {
+                echo "manager=yarn"
+                echo "command=install"
+                echo "runner=yarn"
+                echo "lockfile=yarn.lock"
+              } >> "$GITHUB_OUTPUT"
+            elif [ -f "package-lock.json" ]; then
+              {
+                echo "manager=npm"
+                echo "command=ci"
+                echo "runner=npx --no-install"
+                echo "lockfile=package-lock.json"
+              } >> "$GITHUB_OUTPUT"
+            elif [ -f "pnpm-lock.yaml" ]; then
+              {
+                echo "manager=pnpm"
+                echo "command=install --frozen-lockfile"
+                echo "runner=pnpm"
+                echo "lockfile=pnpm-lock.yaml"
+              } >> "$GITHUB_OUTPUT"
+            else
+              echo "Unable to determine package manager in $(pwd)" >&2
+              exit 1
+            fi
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: ${{ steps.detect-package-manager.outputs.manager }}
+          cache-dependency-path: ${{ env.BUILD_PATH }}/${{ steps.detect-package-manager.outputs.lockfile }}
+          # Corepack helps with Yarn & pnpm shims
+          # (safe to enable for npm too)
+          check-latest: true
+
+      - name: Enable Corepack (for yarn/pnpm)
+        run: corepack enable
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Install dependencies
+        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        working-directory: ${{ env.BUILD_PATH }}
+
+      - name: Build with Astro
+        run: |
+          ${{ steps.detect-package-manager.outputs.runner }} astro build \
+            --site "${{ steps.pages.outputs.origin }}" \
+            --base "${{ steps.pages.outputs.base_path }}"
+        working-directory: ${{ env.BUILD_PATH }}
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.BUILD_PATH }}/dist
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
