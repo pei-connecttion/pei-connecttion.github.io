@@ -1,0 +1,11 @@
+{
+  "name": "connecttion-microsite",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "astro build",
+    "start": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^latest"
+  }
+}
