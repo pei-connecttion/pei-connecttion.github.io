@@ -1,3 +1,5 @@
+import GlanceHover from '../GlanceHover.jsx';
+
 export default function AboutTeam(block) {
   return (
     <div className="team">
@@ -13,13 +15,26 @@ export default function AboutTeam(block) {
           {block.team_members.map((member, i) => (
             <div className="flex-fill" style={{ width: '200px'}} key={i}>
               <div className="team-member">
-                <div className="team-member-thumb rounded-box">
+                <GlanceHover
+                  width="100%"
+                  height="100%"
+                  background="transparent"
+                  borderRadius="inherit"
+                  borderColor="transparent"
+                  glareColor="#ffffff"
+                  glareOpacity={0.4}
+                  glareAngle={-45}
+                  glareSize={200}
+                  transitionDuration={600}
+                  playOnce={false}
+                  className="team-member-thumb rounded-box"
+                >
                   <img
                     src={member.image}
                     alt={`${member.name}'s photo`}
                     loading="lazy"
                   />
-                </div>
+                </GlanceHover>
                 <div className="team-member-details text-center">
                   <h3>{member.name}</h3>
                   <div className="d-flex justify-content-center gap-3">

@@ -1,0 +1,59 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - content_blocks
+  label: About Glance
+  description: About Glance section with hover effects
+  icon: "visibility"
+  tags: []
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  title: "At a Glance"
+  description: "Discover what makes us unique through these interactive elements"
+  glance_items:
+    - title: "Our Vision"
+      description: "Creating innovative solutions for modern challenges"
+      icon: "ph-eye"
+      iconColor: "#007bff"
+      background: "#f8f9fa"
+      borderColor: "#e9ecef"
+      glareColor: "#ffffff"
+      glareOpacity: 0.3
+      width: "100%"
+      height: "250px"
+      borderRadius: "15px"
+    - title: "Our Mission"
+      description: "Empowering teams with cutting-edge technology"
+      icon: "ph-target"
+      iconColor: "#28a745"
+      background: "#f8f9fa"
+      borderColor: "#e9ecef"
+      glareColor: "#ffffff"
+      glareOpacity: 0.3
+      width: "100%"
+      height: "250px"
+      borderRadius: "15px"
+    - title: "Our Values"
+      description: "Innovation, integrity, and excellence in everything we do"
+      icon: "ph-heart"
+      iconColor: "#dc3545"
+      background: "#f8f9fa"
+      borderColor: "#e9ecef"
+      glareColor: "#ffffff"
+      glareOpacity: 0.3
+      width: "100%"
+      height: "250px"
+      borderRadius: "15px"
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  description:
+    type: markdown
+  glance_items:
+    type: array
+  title:
+    type: text

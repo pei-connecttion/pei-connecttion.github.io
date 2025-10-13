@@ -9,7 +9,6 @@ seo:
   open_graph_type:
   no_index: false
 content_blocks:
-
   - _bookshop_name: about/team
     title: Team
     github_icon : /images/github-icon.png
