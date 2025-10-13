@@ -9,21 +9,12 @@ seo:
   open_graph_type:
   no_index: false
 content_blocks:
-  - _bookshop_name: feature/hero
-    title: Run the best campaigns
-    description: Sendit will change the way you think about email and marketing automation.
-    button:
-      link: /signup
-      text: Try This Free
-    image: /images/feature/feature-hero.png
-    image_alt: Charts
-
   - _bookshop_name: global/header
-    title: "Sendit "
-    title_suffix: Features
-    description: Sendit is the most complete solution to create beautiful email designs, manage mails and send them out at the best price.
+    title: "Meeting "
+    title_suffix: Minutes
+    description: Access the minutes of our meetings here to stay informed about our discussions and decisions.
 
-  - _bookshop_name: global/feature
+  - _bookshop_name: feature/carousel
     image: /images/feature/feature-card-one.png
     image_alt: Message inbox
     title: Simply click and send
@@ -52,5 +43,4 @@ content_blocks:
       link: /signup
       text: Try This Free
     reversed: false
-
 ---
