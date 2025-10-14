@@ -1,5 +1,6 @@
 import MarkdownIt from "markdown-it";
 const md = new MarkdownIt({ html: true });
+import Carousel from "@components/feature/carousel/carousel"
 
 export default function FeatureHero(block) {
   return (
