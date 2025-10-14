@@ -1,203 +1,249 @@
-import { useEffect, useState, useRef } from 'react';
-import { motion, useMotionValue, useTransform } from 'motion/react';
-// replace icons with your own if needed
-import { FiCircle, FiCode, FiFileText, FiLayers, FiLayout } from 'react-icons/fi';
+export default function FeatureCarousel({ title = "Feature Carousel", image = "", items = [], ...props }) {
+  // Default items if none provided
+  const defaultItems = [
+    {
+      title: "Placeholder Feature 1",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      image: "/images/feature/feature-card-one.png",
+      link: "/"
+    },
+  ];
 
-const DEFAULT_ITEMS = [
-  {
-    title: 'Text Animations',
-    description: 'Cool text animations for your projects.',
-    id: 1,
-    icon: <FiFileText className="carousel-icon" />
-  },
-  {
-    title: 'Animations',
-    description: 'Smooth animations for your projects.',
-    id: 2,
-    icon: <FiCircle className="carousel-icon" />
-  },
-  {
-    title: 'Components',
-    description: 'Reusable components for your projects.',
-    id: 3,
-    icon: <FiLayers className="carousel-icon" />
-  },
-  {
-    title: 'Backgrounds',
-    description: 'Beautiful backgrounds and patterns for your projects.',
-    id: 4,
-    icon: <FiLayout className="carousel-icon" />
-  },
-  {
-    title: 'Common UI',
-    description: 'Common UI components are coming soon!',
-    id: 5,
-    icon: <FiCode className="carousel-icon" />
-  }
-];
-
-const DRAG_BUFFER = 0;
-const VELOCITY_THRESHOLD = 500;
-const GAP = 16;
-const SPRING_OPTIONS = { type: 'spring', stiffness: 300, damping: 30 };
-
-export default function Carousel({
-  items = DEFAULT_ITEMS,
-  baseWidth = 300,
-  autoplay = false,
-  autoplayDelay = 3000,
-  pauseOnHover = false,
-  loop = false,
-  round = false
-}) {
-  const containerPadding = 16;
-  const itemWidth = baseWidth - containerPadding * 2;
-  const trackItemOffset = itemWidth + GAP;
-
-  const carouselItems = loop ? [...items, items[0]] : items;
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const x = useMotionValue(0);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isResetting, setIsResetting] = useState(false);
-
-  const containerRef = useRef(null);
-  useEffect(() => {
-    if (pauseOnHover && containerRef.current) {
-      const container = containerRef.current;
-      const handleMouseEnter = () => setIsHovered(true);
-      const handleMouseLeave = () => setIsHovered(false);
-      container.addEventListener('mouseenter', handleMouseEnter);
-      container.addEventListener('mouseleave', handleMouseLeave);
-      return () => {
-        container.removeEventListener('mouseenter', handleMouseEnter);
-        container.removeEventListener('mouseleave', handleMouseLeave);
-      };
-    }
-  }, [pauseOnHover]);
-
-  useEffect(() => {
-    if (autoplay && (!pauseOnHover || !isHovered)) {
-      const timer = setInterval(() => {
-        setCurrentIndex(prev => {
-          if (prev === items.length - 1 && loop) {
-            return prev + 1;
-          }
-          if (prev === carouselItems.length - 1) {
-            return loop ? 0 : prev;
-          }
-          return prev + 1;
-        });
-      }, autoplayDelay);
-      return () => clearInterval(timer);
-    }
-  }, [autoplay, autoplayDelay, isHovered, loop, items.length, carouselItems.length, pauseOnHover]);
-
-  const effectiveTransition = isResetting ? { duration: 0 } : SPRING_OPTIONS;
-
-  const handleAnimationComplete = () => {
-    if (loop && currentIndex === carouselItems.length - 1) {
-      setIsResetting(true);
-      x.set(0);
-      setCurrentIndex(0);
-      setTimeout(() => setIsResetting(false), 50);
-    }
-  };
-
-  const handleDragEnd = (_, info) => {
-    const offset = info.offset.x;
-    const velocity = info.velocity.x;
-    if (offset < -DRAG_BUFFER || velocity < -VELOCITY_THRESHOLD) {
-      if (loop && currentIndex === items.length - 1) {
-        setCurrentIndex(currentIndex + 1);
-      } else {
-        setCurrentIndex(prev => Math.min(prev + 1, carouselItems.length - 1));
-      }
-    } else if (offset > DRAG_BUFFER || velocity > VELOCITY_THRESHOLD) {
-      if (loop && currentIndex === 0) {
-        setCurrentIndex(items.length - 1);
-      } else {
-        setCurrentIndex(prev => Math.max(prev - 1, 0));
-      }
-    }
-  };
-
-  const dragProps = loop
-    ? {}
-    : {
-        dragConstraints: {
-          left: -trackItemOffset * (carouselItems.length - 1),
-          right: 0
-        }
-      };
-
+  const carouselItems = items.length > 0 ? items : defaultItems;
   return (
-    <div
-      ref={containerRef}
-      className={`carousel-container ${round ? 'round' : ''} mx-auto`}
-      style={{
-        width: '100%',
-        ...(round && { height: `${baseWidth}px`, borderRadius: '50%' })
-      }}
-    >
-      <motion.div
-        className="carousel-track"
-        drag="x"
-        {...dragProps}
-        style={{
-          width: carouselItems.length * trackItemOffset,
-          gap: `${GAP}px`,
-          perspective: 1000,
-          perspectiveOrigin: `${currentIndex * trackItemOffset + itemWidth / 2}px 50%`,
-          x
-        }}
-        onDragEnd={handleDragEnd}
-        animate={{ x: -(currentIndex * trackItemOffset) }}
-        transition={effectiveTransition}
-        onAnimationComplete={handleAnimationComplete}
-      >
-        {carouselItems.map((item, index) => {
-          const range = [-(index + 1) * trackItemOffset, -index * trackItemOffset, -(index - 1) * trackItemOffset];
-          const outputRange = [90, 0, -90];
-          // eslint-disable-next-line react-hooks/rules-of-hooks
-          const rotateY = useTransform(x, range, outputRange, { clamp: false });
-          return (
-            <motion.div
-              key={index}
-              className={`carousel-item ${round ? 'round' : ''}`}
-              style={{
-                width: itemWidth,
-                height: round ? itemWidth : '100%',
-                rotateY: rotateY,
-                ...(round && { borderRadius: '50%' })
-              }}
-              transition={effectiveTransition}
-            >
-              <div className={`carousel-item-header ${round ? 'round' : ''}`}>
-                <span className="carousel-icon-container">{item.icon}</span>
+    <>
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          /* Carousel Demo Styles - Inline to avoid conflicts */
+          .demo-carousel-section {
+            padding: 0 0 80px 0;
+          }
+
+          .demo-carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+          }
+
+          .demo-carousel-content-wrapper {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #555;
+            border-radius: 24px;
+            padding: 20px;
+          }
+
+          .demo-carousel-track {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+            width: 100%;
+          }
+
+          .demo-carousel-item {
+            width: 100%;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 280px;
+            padding: 0;
+            gap: 20px;
+          }
+
+          .demo-carousel-item-image {
+            flex: 0 0 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .demo-carousel-item-image img {
+            width: 100%;
+            height: auto;
+            max-width: 200px;
+            border-radius: 12px;
+          }
+
+          .demo-carousel-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.1);
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+          }
+
+          .demo-carousel-nav-btn:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-color: #333;
+            transform: translateY(-50%) scale(1.1);
+          }
+
+          .demo-carousel-prev-btn {
+            left: 10px;
+          }
+
+          .demo-carousel-next-btn {
+            right: 10px;
+          }
+
+          .demo-carousel-item-content {
+            flex: 1;
+            padding: 24px;
+            padding-left: 0;
+          }
+
+          .demo-carousel-item-title {
+            margin-bottom: 12px;
+            font-weight: 900;
+            font-size: 24px;
+          }
+
+          .demo-carousel-item-description {
+            font-size: 16px;
+            line-height: 1.6;
+          }
+
+          .demo-carousel-navigation-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+          }
+
+          .demo-carousel-nav-button {
+            background-color: rgba(0, 0, 0, 0.1);
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            padding: 10px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+          }
+
+          .demo-carousel-nav-button:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-color: #333;
+          }
+
+          .demo-carousel-nav-button.active {
+            background-color: #333;
+            color: #fff;
+            border-color: #333;
+          }
+        `
+      }} />
+      
+      <section className="demo-carousel-section">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-12 col-lg-10">
+              <div className="demo-carousel-container">
+                <div className="demo-carousel-content-wrapper">
+                  <button className="demo-carousel-nav-btn demo-carousel-prev-btn" id="demoPrevBtn">
+                    <i className="ph ph-caret-left"></i>
+                  </button>
+                  <button className="demo-carousel-nav-btn demo-carousel-next-btn" id="demoNextBtn">
+                    <i className="ph ph-caret-right"></i>
+                  </button>
+                  <div className="demo-carousel-track" id="demoCarouselTrack">
+                    {carouselItems.map((item, index) => (
+                      <div key={index} className="demo-carousel-item">
+                        <div className="demo-carousel-item-image">
+                          <img src={image} alt={item.title} />
+                        </div>
+                        <div className="demo-carousel-item-content">
+                          <div className="demo-carousel-item-title">{item.title}</div>
+                          <p className="demo-carousel-item-description">{item.description}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="demo-carousel-navigation-buttons">
+                  {carouselItems.map((item, index) => (
+                    <button key={index} className={`demo-carousel-nav-button ${index === 0 ? 'active' : ''}`} data-slide={index}>
+                      {item.title}
+                    </button>
+                  ))}
+                </div>
               </div>
-              <div className="carousel-item-content">
-                <div className="carousel-item-title">{item.title}</div>
-                <p className="carousel-item-description">{item.description}</p>
-              </div>
-            </motion.div>
-          );
-        })}
-      </motion.div>
-      <div className={`carousel-indicators-container ${round ? 'round' : ''}`}>
-        <div className="carousel-indicators">
-          {items.map((_, index) => (
-            <motion.div
-              key={index}
-              className={`carousel-indicator ${currentIndex % items.length === index ? 'active' : 'inactive'}`}
-              animate={{
-                scale: currentIndex % items.length === index ? 1.2 : 1
-              }}
-              onClick={() => setCurrentIndex(index)}
-              transition={{ duration: 0.15 }}
-            />
-          ))}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+        
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            document.addEventListener('DOMContentLoaded', function() {
+              // Use a timeout to ensure React has rendered all items
+              setTimeout(function() {
+                const track = document.getElementById('demoCarouselTrack');
+                const navButtons = document.querySelectorAll('.demo-carousel-nav-button');
+                const items = document.querySelectorAll('.demo-carousel-item');
+                const prevBtn = document.getElementById('demoPrevBtn');
+                const nextBtn = document.getElementById('demoNextBtn');
+                let currentIndex = 0;
+                
+                console.log('Carousel items found:', items.length);
+                console.log('Nav buttons found:', navButtons.length);
+                
+                function showSlide(index) {
+                  // Re-query items to make sure we have all of them
+                  const currentItems = document.querySelectorAll('.demo-carousel-item');
+                  const currentNavButtons = document.querySelectorAll('.demo-carousel-nav-button');
+                  
+                  currentNavButtons.forEach((button, i) => {
+                    button.classList.toggle('active', i === index);
+                  });
+                  
+                  const offset = -index * 100;
+                  if (track) track.style.transform = \`translateX(\${offset}%)\`;
+                  currentIndex = index;
+                }
+                
+                function nextSlide() {
+                  const currentItems = document.querySelectorAll('.demo-carousel-item');
+                  const nextIndex = (currentIndex + 1) % currentItems.length;
+                  showSlide(nextIndex);
+                }
+                
+                function prevSlide() {
+                  const currentItems = document.querySelectorAll('.demo-carousel-item');
+                  const prevIndex = (currentIndex - 1 + currentItems.length) % currentItems.length;
+                  showSlide(prevIndex);
+                }
+                
+                navButtons.forEach((button, index) => {
+                  button.addEventListener('click', () => {
+                    console.log('Nav button clicked:', index);
+                    showSlide(index);
+                  });
+                });
+                
+                if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+                if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+                
+                // Initialize first slide
+                showSlide(0);
+              }, 100);
+            });
+          `
+        }} />
+      </section>
+    </>
   );
 }

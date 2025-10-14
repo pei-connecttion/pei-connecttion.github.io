@@ -10,25 +10,28 @@ spec:
 # Defines the structure of this component, as well as the default values
 blueprint:
   title: Feature Carousel
+  image: /images/feature/feature-card-one.png
   items:
     - title: "Card 1"
       description: "Short description for card 1"
       link: "/"
-      image: /images/feature/feature-card-one.png
     - title: "Card 2"
       description: "Short description for card 2"
       link: "/"
-      image: /images/feature/feature-card-two.png
     - title: "Card 3"
       description: "Short description for card 3"
       link: "/"
-      image: /images/feature/feature-card-three.png
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
 
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
+  title:
+    type: text
+  image:
+    type: image
+    comment: "This image will be used for all carousel cards"
   items:
     type: array
     fields:
@@ -38,5 +41,3 @@ _inputs:
         type: textarea
       - name: link
         type: text
-      - name: image
-        type: image

@@ -14,14 +14,23 @@ content_blocks:
     title_suffix: Minutes
     description: Access the minutes of our meetings here to stay informed about our discussions and decisions.
 
+  - _bookshop_name: feature/carousel
+    image: "/images/feature/feature-card-one.png"
+    items:
+      - title: "Meeting 1"
+        description: "Create and send beautiful email campaigns in minutes with our intuitive drag-and-drop editor."
+        link: "/campaigns"
+      - title: "Meeting 2"
+        description: "Track your email performance with detailed analytics and insights to optimize your campaigns."
+        link: "/analytics"
+      - title: "Meeting 3"
+        description: "Choose from hundreds of professionally designed templates that convert."
+        link: "/templates"
+      - title: "Meeting 4"
+        description: "Set up automated email sequences for better engagement and higher conversions."
+        link: "/automation"
+      - title: "Meeting 5"
+        description: "Organize and segment your contacts effectively for targeted campaigns."
+        link: "/contacts"
 
-  - _bookshop_name: global/feature
-    image: /images/feature/feature-card-three.png
-    image_alt: Upload box
-    title: Free templates to get you started
-    description: "Sendit is used by everyone from small businesses to fortune 500 companies. Browse our collection of email marketing templates and start sending beautiful emails in minutes."
-    button:
-      link: /signup
-      text: Try This Free
-    reversed: false
 ---
