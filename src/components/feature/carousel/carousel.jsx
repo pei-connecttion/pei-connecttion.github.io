@@ -21,8 +21,8 @@ export default function FeatureCarousel({ title = "Feature Carousel", image = ""
 
           .demo-carousel-container {
             position: relative;
-            width: 100%;
-            max-width: 600px;
+            width: 90%;
+            max-width: 1200px; /* expand max width to occupy more of the page */
             margin: 0 auto;
           }
 
@@ -31,7 +31,7 @@ export default function FeatureCarousel({ title = "Feature Carousel", image = ""
             overflow: hidden;
             border: 1px solid #555;
             border-radius: 24px;
-            padding: 20px;
+            padding: 40px; /* increased vertical padding for taller appearance */
           }
 
           .demo-carousel-track {
@@ -47,13 +47,13 @@ export default function FeatureCarousel({ title = "Feature Carousel", image = ""
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            min-height: 280px;
+            min-height: 480px; /* increased height so it appears much taller */
             padding: 0;
-            gap: 20px;
+            gap: 24px;
           }
 
           .demo-carousel-item-image {
-            flex: 0 0 40%;
+            flex: 0 0 35%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -62,7 +62,7 @@ export default function FeatureCarousel({ title = "Feature Carousel", image = ""
           .demo-carousel-item-image img {
             width: 100%;
             height: auto;
-            max-width: 200px;
+            max-width: 480px; /* allow a much larger image for taller layout */
             border-radius: 12px;
           }
 
@@ -123,26 +123,62 @@ export default function FeatureCarousel({ title = "Feature Carousel", image = ""
             margin-top: 20px;
           }
 
+          /* small nav buttons: transparent when inactive, using active color for text/border */
           .demo-carousel-nav-button {
-            background-color: rgba(0, 0, 0, 0.1);
-            border: 1px solid #ccc;
-            border-radius: 25px;
-            padding: 10px 16px;
+            background: transparent; /* no bg when inactive */
+            color: #009fba; /* active color text when inactive */
+            border: 2px solid #009fba; /* active color border when inactive */
+            border-radius: 28px;
+            padding: 10px 18px;
             font-size: 14px;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: transform .12s ease, background .12s ease, color .12s ease, border-color .12s ease;
             white-space: nowrap;
           }
 
-          .demo-carousel-nav-button:hover {
-            background-color: rgba(0, 0, 0, 0.2);
-            border-color: #333;
+          .demo-carousel-nav-button:hover,
+          .demo-carousel-nav-button:focus {
+            transform: translateY(-1px);
+            background: #009fba; /* main color on hover */
+            color: #ffffff;
+            border-color: #009fba;
+            outline: none;
           }
 
           .demo-carousel-nav-button.active {
-            background-color: #333;
+            background: #009fba; /* active uses main color */
+            color: #ffffff;
+            border-color: #009fba;
+          }
+          .demo-carousel-image-link { display: inline-block; }
+          .demo-carousel-image-link img { cursor: pointer; display: block; }
+          .demo-carousel-image-link:hover { text-decoration: none; }
+          /* Button-like title link to match design */
+          .demo-carousel-title-link {
+            display: inline-block;
+            background: #009fba; /* main teal */
             color: #fff;
-            border-color: #333;
+            padding: 12px 36px;
+            border-radius: 28px;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: none;
+            transition: transform .12s ease, opacity .12s ease, background .12s ease, color .12s ease, border-color .12s ease;
+            border: 2px solid transparent;
+          }
+          .demo-carousel-title-link:hover,
+          .demo-carousel-title-link:focus {
+            transform: translateY(-1px);
+            opacity: 1;
+            text-decoration: none;
+            background: #ffffff; /* white on hover */
+            color: #009fba; /* teal text on hover */
+            border-color: #009fba;
+          }
+          .demo-carousel-title-link:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(0,159,186,0.12);
           }
         `
       }} />
@@ -163,12 +199,12 @@ export default function FeatureCarousel({ title = "Feature Carousel", image = ""
                     {carouselItems.map((item, index) => (
                       <div key={index} className="demo-carousel-item">
                         <div className="demo-carousel-item-image">
-                          <img src={image} alt={item.title} />
+                          <img src={item.image || image} alt={item.title} />
                         </div>
                         <div className="demo-carousel-item-content">
-                          <div className="demo-carousel-item-title">{item.title}</div>
-                          <p className="demo-carousel-item-description">{item.description}</p>
-                        </div>
+                        <div className="demo-carousel-item-title"><a href={item.link || '#'} className="demo-carousel-title-link">{item.title}</a></div>
+                        <p className="demo-carousel-item-description">{item.description}</p>
+                      </div>
                       </div>
                     ))}
                   </div>
