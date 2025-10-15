@@ -20,29 +20,14 @@ content_blocks:
       text: Try This Free
       link: /signup/
   - _bookshop_name: global/counter
-    title: Scale your
-    title_suffix: Business
+    title: Our
+    title_suffix: Features
     description: >-
-      We have an extensive library of pre-written sales emails, proven marketing
-      templates, and more to get you started on your next project.
     alternate_style: false
-    numbers:
-      - prefix: $
-        number: 200
-        suffix: m
-        text: Venture capital raised
-      - prefix:
-        number: 2016
-        suffix:
-        text: Established in
-      - prefix:
-        number: 40
-        suffix: +
-        text: Amazing team members
-      - prefix:
-        number: 4322
-        suffix: +
-        text: Active users and growing
+    features:
+      - text: Modular ERP
+      - text: Scalable and Integrated
+      - text: Security and Transparency
   - _bookshop_name: home/video
     image: /images/video/video-thum.jpg
     image_alt: Thumbnail for video
