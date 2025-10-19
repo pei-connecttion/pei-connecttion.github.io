@@ -1,0 +1,25 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import { getCollection, CollectionEntry } from "astro:content";
+
+export interface Props {
+  milestone: CollectionEntry<"milestones">;
+}
+
+export async function getStaticPaths() {
+  const milestones = await getCollection("milestones");
+  return milestones.map((milestone) => ({
+    params: { slug: milestone.slug },
+    props: { milestone },
+  }));
+}
+
+const milestone = Astro.props.milestone;
+if (!milestone.data.content_blocks) {
+  throw new Error(
+    `Tried to output milestone with unsupported schema: ${milestone.data._schema}`
+  );
+}
+---
+
+<PageLayout frontmatter={milestone.data} />

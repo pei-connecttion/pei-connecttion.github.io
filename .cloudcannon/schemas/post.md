@@ -2,7 +2,7 @@
 date:
 title: ''
 tags:
-  - blog
+  - milestones
 author: Gerard Hopper
 thumb_image:
   image: ''

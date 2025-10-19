@@ -2,55 +2,49 @@
   "logo": "/images/connecttion-logo-blue.png",
   "nav_items": [
     {
-      "text": "Home",
-      "link": "/",
-      "enable_dropdown": false,
-      "dropdown": []
-    },
-    {
       "text": "Minutes",
-      "link": "/features/",
+      "link": "/minutes/",
       "enable_dropdown": false,
       "dropdown": []
     },
     {
       "text": "Calendar",
-      "link": "/pricing/",
+      "link": "/calendar/",
       "enable_dropdown": false,
       "dropdown": []
     },
     {
       "text": "Team",
-      "link": "/about/",
+      "link": "/team/",
       "enable_dropdown": false,
       "dropdown": []
     },
     {
       "text": "Milestones",
-      "link": "/blog/",
+      "link": "/milestones/",
       "enable_dropdown": true,
       "dropdown": [
         {
           "dropdown_text": "M1 - Inception",
-          "dropdown_link": "/blog"
+          "dropdown_link": "/milestones/m1"
         },
         {
           "dropdown_text": "M2 - Elaboration",
-          "dropdown_link": "/tags/marketing/"
+          "dropdown_link": "/milestones/m2"
         },
         {
           "dropdown_text": "M3 - Construction",
-          "dropdown_link": "/tags/technology/"
+          "dropdown_link": "/milestones/m3"
         },
         {
           "dropdown_text": "M4 - Transition",
-          "dropdown_link": "/tags/technology/"
+          "dropdown_link": "/milestones/m4"
         }
       ]
     },
     {
       "text": "Documentation",
-      "link": "/contact/",
+      "link": "/documentation/",
       "enable_dropdown": false,
       "dropdown": []
     }
@@ -60,9 +54,5 @@
     { "name": "figma", "link": "https://www.figma.com/yourfile", "icon": "/" },
     { "name": "jira", "link": "https://yourcompany.atlassian.net", "icon": "/images/jira-icon.png" }
   ],
-  "enable_nav_btn": false,
-  "nav_btn": {
-    "text": "Get Started",
-    "link": "/signup/"
-  }
+  "enable_nav_btn": false
 }

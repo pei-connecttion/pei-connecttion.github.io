@@ -18,59 +18,20 @@ content_blocks:
     image_alt: Reports dashboard
     button:
       text: Try This Free
-      link: /signup/
-  - _bookshop_name: global/counter
+      link: /documentation/
+  - _bookshop_name: global/features
     title: Our
     title_suffix: Features
     description: >-
     alternate_style: false
     features:
       - text: Modular ERP
-      - text: Scalable and Integrated
-      - text: Security and Transparency
+      - text: Invetory Management
+      - text: Automatic generation of financial reports
+      - text: Associates Management
+      - text: CRM system
   - _bookshop_name: home/video
     image: /images/video/video-thum.jpg
     image_alt: Thumbnail for video
     video_url: https://vimeo.com/45830194
-  - _bookshop_name: global/header
-    title: "Sendit "
-    title_suffix: Features
-    remove_top_padding: true
-    description: >-
-      Our platform offers the most advanced features including automated email
-      content creation, dynamic personalization, and customer segmentation.
-  - _bookshop_name: global/feature
-    image: /images/feature/feature-card-one.png
-    image_alt: Message inbox
-    title: Email Campaign in one minute
-    description: >-
-      Send an email campaign with one click, in just minutes. Automate your
-      emails and content, while keeping the human touch.
-    button:
-      link: /signup
-      text: Try This Free
-    reversed: false
-  - _bookshop_name: global/feature
-    image: /images/feature/feature-card-two.png
-    image_alt: Visitor chart
-    title: See every Lead in one Place
-    description: >-
-      Sales analytics and automation made simple: see every sales lead in one
-      place, regardless of where it came from.
-    button:
-      link: /signup
-      text: Try This Free
-    reversed: true
-  - _bookshop_name: global/feature
-    image: /images/feature/feature-card-three.png
-    image_alt: File upload
-    title: 100% free uploads
-    description: >-
-      Sendit is used by everyone from small businesses to fortune 500 companies.
-      Browse our collection of email marketing templates and start sending
-      beautiful emails in minutes.
-    button:
-      link: /signup
-      text: Try This Free
-    reversed: false
 ---

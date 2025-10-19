@@ -10,22 +10,21 @@ PROJECT:	JACKCREATIVE
 5.  Navbar Styles
 6.  Hero Section Styles
 7.  Cta Page and Sections Styles
-8.  About Page and Section Styles
+8.  Team Page and Section Styles
 9.  Feature Page nd Section Styles
 10. Access Section Styles
 11. Testimonial Section Styles
 12. Video Section Styles
-13. Pricing Page and Section Styles
+13. Calendar Page and Section Styles
 14. Work Section Styles
 15. Footer Section Styles
-16. Blog Page and Section Styles
+16. Milestones Page and Section Styles
 17. Galery Section Styles
 18. FAQ Section Styles
-19. Contact Form Page Styles
-20. Counter Up Section Styles
+19. Documentation Form Page Styles
+20. Features Section Styles
 21.Services Section Styles
-22.Sing-up Section Styles
-23.TeamSection Styles
+22.TeamSection Styles
 
 
 ===================== */
@@ -38,21 +37,10 @@ PROJECT:	JACKCREATIVE
 // //Theme Components
 @import "components/navbar";
 @import "components/hero";
-@import "components/about";
-@import "components/feature";
-@import "components/access";
-@import "components/team";
-@import "components/testimonial";
-@import "components/galery";
-@import "components/works";
-@import "components/pricing";
-@import "components/privacy";
-@import "components/cta";
-@import "components/footer";
-@import "components/blog";
-@import "components/services";
+@import "components/minutes";
+@import "components/calendar";
 @import "components/video";
-@import "components/faq";
-@import "components/contact-form";
-@import "components/sing-up";
-@import "components/counter-up";
+@import "components/footer";
+@import "components/milestones";
+@import "components/team";
+@import "components/documentation";

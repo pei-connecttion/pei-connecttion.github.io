@@ -12,22 +12,24 @@ const seoSchema = z
   })
   .optional();
 
-const blogCollection = defineCollection({
+const milestonesCollection = defineCollection({
   schema: z.object({
-    date: z.date(),
+    date: z.date().optional(),
     title: z.string(),
-    tags: z.array(z.string()),
-    author: z.string(),
+    tags: z.array(z.string()).optional(),
+    author: z.string().optional(),
     thumb_image: z.object({
       image: z.string(),
       image_alt: z.string(),
-    }),
+    }).optional(),
     featured_image: z.object({
       image: z.string(),
       image_alt: z.string(),
-    }),
+    }).optional(),
     seo: seoSchema,
-    draft: z.boolean()
+    draft: z.boolean().optional(),
+    description: z.string().optional(),
+    content_blocks: z.array(z.any()).optional(),
   }),
 });
 
@@ -56,6 +58,6 @@ const pagesCollection = defineCollection({
 });
 
 export const collections = {
-  blog: blogCollection,
+  milestones: milestonesCollection,
   pages: pagesCollection,
 };

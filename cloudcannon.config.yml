@@ -11,8 +11,8 @@ commit_templates:
 collections_config:
   posts:
     icon: newspaper
-    path: src/content/blog
-    url: "/blog/[slug]/"
+    path: src/content/milestones
+    url: "/milestones/[slug]/"
     disable_add_folder: true
     _enabled_editors:
       - content
@@ -115,7 +115,7 @@ collection_groups:
   - heading: Pages
     collections:
       - pages
-  - heading: Blogging
+  - heading: Milestones
     collections:
       - posts
   - heading: Site Settings
@@ -123,8 +123,8 @@ collection_groups:
       - data
 
 data_config:
-  blog-tags:
-    path: data/blog-tags.json  
+  milestones-tags:
+    path: data/milestones-tags.json  
 
 _inputs:
   image:
@@ -202,7 +202,7 @@ _inputs:
       type: multiselect
       options: 
         empty_type: array
-        values: data.blog-tags
+        values: data.milestones-tags
 
 _structures:
   features:

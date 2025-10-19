@@ -10,7 +10,7 @@ Sendit is a polished, marketing website template for Astro. Browse through a [li
 
 - Pre-built pages
 - Pre-styled components
-- Blog with pagination and category pages
+- Milestones with pagination and category pages
 - Configurable navigation and footer
 - Multiple hero options
 - Configurable theme colors

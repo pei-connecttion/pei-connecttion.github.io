@@ -186,6 +186,22 @@ body {
   line-height: 1.5;
 }
 
+/* Sticky Footer Layout */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
 .bg-nav {
   background: rgba($color-secondary, 0.95);
 
@@ -265,7 +281,7 @@ a {
   font-weight: 700;
 }
 
-.next-blog {
+.next-milestones {
   display: none;
 }
 
@@ -347,11 +363,11 @@ a {
   background: $color-secondary;
 }
 
-.pricing-inner {
+.calendar-inner {
   background: $color-white;
 }
 
-.pricing-inner-two {
+.calendar-inner-two {
   background: $color-secondary;
 }
 

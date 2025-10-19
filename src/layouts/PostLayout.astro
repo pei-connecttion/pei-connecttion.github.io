@@ -33,18 +33,18 @@ const content = Astro.props.body ?? Astro.props.rawContent();
 const wordCount = content.split(" ").length;
 const readingTime = Math.floor(wordCount / 183);
 
-const posts = await getCollection("blog");
+const posts = await getCollection("milestones");
 ---
 
 <Layout {...props}>
-  <section class="blog-details">
+  <section class="milestones-details">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <article class="blog-single">
-            <div class="inner-blog-details">
-              <h2 class="w-xxl-70 w-xl-80 w-100">{title}</h2>
-              <div class="inner-blog-details-meta">
+                      <article class="milestones-single">
+            <div class="inner-milestones-details">
+              <h1>{title}</h1>
+              <div class="inner-milestones-details-meta">
                 <ul class="list-unstyled">
                   <li class="list-inline-item">
                     <p>
@@ -89,12 +89,12 @@ const posts = await getCollection("blog");
     </div>
   </section>
 
-  <section class="blog-related position-relative">
+  <section class="milestones-related position-relative">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="blog-section">
-            <h2 class="blog-section-title">Recent Blog</h2>
+          <div class="milestones-section">
+            <h2 class="milestones-section-title">Recent Milestones</h2>
           </div>
         </div>
       </div>
