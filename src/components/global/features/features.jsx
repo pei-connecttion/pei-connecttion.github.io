@@ -10,18 +10,41 @@ export default function GlobalFeatures(block) {
           .features .features-wrapper {
             display: flex !important;
             flex-wrap: wrap !important;
-            gap: 20px !important;
+            gap: 24px !important;
             max-width: 100% !important;
             justify-content: center !important;
           }
           .features .features-content {
-            padding: 20px !important;
+            padding: 32px 24px !important;
             text-align: center !important;
-            background: transparent !important;
-            border-radius: 10px !important;
-            border: 1px solid #eee !important;
-            width: calc(50% - 10px) !important;
+            background: linear-gradient(135deg, rgba(0, 159, 186, 0.05) 0%, rgba(0, 159, 186, 0.08) 100%) !important;
+            border-radius: 16px !important;
+            border: 2px solid rgba(0, 159, 186, 0.2) !important;
+            width: calc(50% - 12px) !important;
             box-sizing: border-box !important;
+            transition: all 0.3s ease !important;
+            position: relative !important;
+            overflow: hidden !important;
+          }
+          .features .features-content::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            height: 4px !important;
+            background: linear-gradient(90deg, #009FBA 0%, #007A8E 100%) !important;
+            transform: scaleX(0) !important;
+            transition: transform 0.3s ease !important;
+          }
+          .features .features-content:hover {
+            transform: translateY(-8px) !important;
+            border-color: rgba(0, 159, 186, 0.4) !important;
+            background: linear-gradient(135deg, rgba(0, 159, 186, 0.08) 0%, rgba(0, 159, 186, 0.12) 100%) !important;
+            box-shadow: 0 12px 40px rgba(0, 159, 186, 0.15) !important;
+          }
+          .features .features-content:hover::before {
+            transform: scaleX(1) !important;
           }
           .features .features-percent {
             margin-bottom: 4px !important;
@@ -29,14 +52,25 @@ export default function GlobalFeatures(block) {
           .features .features-text {
             font-size: 1.5rem !important;
             font-weight: 600 !important;
-            line-height: 1.2 !important;
+            line-height: 1.3 !important;
             display: block !important;
             word-break: break-word !important;
             max-width: 100% !important;
+            color: #006B7D !important;
+            transition: color 0.3s ease !important;
+          }
+          .features .features-content:hover .features-text {
+            color: #009FBA !important;
           }
           .features .section-header h2 {
             font-size: 3.5rem !important;
             margin-bottom: 10px !important;
+          }
+          .features .section-header h2 span {
+            background: linear-gradient(135deg, #009FBA 0%, #007A8E 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
           }
           .features .section-header div {
             font-size: 1.1rem !important;
@@ -45,10 +79,10 @@ export default function GlobalFeatures(block) {
           @media (max-width: 768px) {
             .features .features-wrapper {
               flex-direction: column !important;
-              gap: 15px !important;
+              gap: 16px !important;
             }
             .features .features-content {
-              padding: 15px !important;
+              padding: 24px 20px !important;
               width: 100% !important;
             }
             .features .features-text {
