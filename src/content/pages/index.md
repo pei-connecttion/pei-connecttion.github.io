@@ -26,12 +26,12 @@ content_blocks:
     alternate_style: false
     features:
       - text: Modular ERP
-      - text: Invetory Management
+      - text: Inventory Management
       - text: Automatic generation of financial reports
       - text: Associates Management
       - text: CRM system
   - _bookshop_name: home/video
-    image: /images/video/video-thum.jpg
+    image: "/images/video/video-thum.jpg"
     image_alt: Thumbnail for video
     video_url: https://vimeo.com/45830194
 ---
