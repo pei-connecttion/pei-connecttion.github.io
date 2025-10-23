@@ -4,7 +4,6 @@ const md = new MarkdownIt({ html: true });
 export default function HomeHero(block) {
   return (
     <section className="hero-two">
-      <div className="hero-two-shape"></div>
       <div className="container-fluid">
         <div className="row align-items-center">
           <div className="col-lg-6">
@@ -16,6 +15,7 @@ export default function HomeHero(block) {
                 style={{
                   width: "600px",
                   height: "auto",
+                  marginLeft: "-15px"
                 }}
               />
               <div
@@ -31,8 +31,13 @@ export default function HomeHero(block) {
               <img
                 src={block.image}
                 alt={block.image_alt}
+                style={{
+                  width: "800px",
+                  height: "auto",
+                  objectFit: "contain",
+                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
+                }}
               />
-              <div className="hero-two-banner-shape"></div>
             </div>
           </div>
         </div>

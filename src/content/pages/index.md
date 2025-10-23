@@ -14,24 +14,23 @@ content_blocks:
     logo: /images/hero/slogan.png
     title: Connecttion
     description: Information System for the Optimization of Processes in Associations
-    image: /images/hero/hero-image-2.png
-    image_alt: Reports dashboard
+    image: /images/hero/mockup.jpg
+    image_alt: Mockup
     button:
       text: Try This Free
       link: /documentation/
-  - _bookshop_name: global/features
+  - _bookshop_name: home/features
     title: Our
     title_suffix: Features
     description: >-
     alternate_style: false
     features:
-      - text: Modular ERP
       - text: Inventory Management
       - text: Automatic generation of financial reports
       - text: Associates Management
       - text: CRM system
-  - _bookshop_name: home/video
-    image: "/images/video/video-thum.jpg"
-    image_alt: Thumbnail for video
-    video_url: https://vimeo.com/45830194
+  # - _bookshop_name: home/video
+  #   image: "/images/video/video-thum.jpg"
+  #   image_alt: Thumbnail for video
+  #   video_url: https://vimeo.com/45830194
 ---

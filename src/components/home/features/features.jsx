@@ -13,11 +13,12 @@ export default function GlobalFeatures(block) {
             gap: 24px !important;
             max-width: 100% !important;
             justify-content: center !important;
+            margin-bottom: 120px !important;
           }
           .features .features-content {
             padding: 32px 24px !important;
             text-align: center !important;
-            background: linear-gradient(135deg, rgba(0, 159, 186, 0.05) 0%, rgba(0, 159, 186, 0.08) 100%) !important;
+            background: #cee3eb !important;
             border-radius: 16px !important;
             border: 2px solid rgba(0, 159, 186, 0.2) !important;
             width: calc(50% - 12px) !important;
@@ -33,14 +34,14 @@ export default function GlobalFeatures(block) {
             left: 0 !important;
             right: 0 !important;
             height: 4px !important;
-            background: linear-gradient(90deg, #009FBA 0%, #007A8E 100%) !important;
+            background: #009fba !important;
             transform: scaleX(0) !important;
             transition: transform 0.3s ease !important;
           }
           .features .features-content:hover {
             transform: translateY(-8px) !important;
-            border-color: rgba(0, 159, 186, 0.4) !important;
-            background: linear-gradient(135deg, rgba(0, 159, 186, 0.08) 0%, rgba(0, 159, 186, 0.12) 100%) !important;
+            border-color: #009fba !important;
+            background: #009fba !important;
             box-shadow: 0 12px 40px rgba(0, 159, 186, 0.15) !important;
           }
           .features .features-content:hover::before {
@@ -60,14 +61,14 @@ export default function GlobalFeatures(block) {
             transition: color 0.3s ease !important;
           }
           .features .features-content:hover .features-text {
-            color: #009FBA !important;
+            color: white !important;
           }
           .features .section-header h2 {
             font-size: 3.5rem !important;
             margin-bottom: 10px !important;
           }
           .features .section-header h2 span {
-            background: linear-gradient(135deg, #009FBA 0%, #007A8E 100%) !important;
+            background: #009fba !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
             background-clip: text !important;

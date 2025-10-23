@@ -87,9 +87,13 @@ export default function CalendarCalendar(block) {
                       }
                       current = { title, date, tasks: [] };
                       entries.push(current);
-                    } else if (line.startsWith('- ')) {
+                    } else if (rawLine.match(/^-\s+/) || rawLine.match(/^\s{2,}-\s+/)) {
+                      // Handle both top-level and indented bullet points
                       if (!current) { current = { title: '', date: '', tasks: [] }; entries.push(current); }
-                      current.tasks.push(line.replace(/^-\s+/, '').trim());
+                      const indent = rawLine.match(/^(\s*)/)[1].length;
+                      const taskText = rawLine.replace(/^\s*-\s+/, '').trim();
+                      const task = { text: taskText, indent: indent };
+                      current.tasks.push(task);
                     }
                   }
                   return entries;
@@ -113,7 +117,25 @@ export default function CalendarCalendar(block) {
                             <td className="calendar-calendar__date">{e.date}</td>
                             <td className="calendar-calendar__tasks">
                               <ul>
-                                {e.tasks.map((t, idx) => (<li key={idx}>{t}</li>))}
+                                {e.tasks.map((t, idx) => {
+                                  const isObject = typeof t === 'object';
+                                  const text = isObject ? t.text : t;
+                                  const indent = isObject ? t.indent : 0;
+                                  const isSubItem = indent > 0;
+                                  
+                                  return (
+                                    <li 
+                                      key={idx} 
+                                      style={{ 
+                                        marginLeft: isSubItem ? '20px' : '0px',
+                                        listStyle: isSubItem ? 'circle' : 'disc',
+                                        fontSize: isSubItem ? '0.9em' : '1em'
+                                      }}
+                                    >
+                                      {text}
+                                    </li>
+                                  );
+                                })}
                               </ul>
                             </td>
                           </tr>

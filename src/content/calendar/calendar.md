@@ -6,21 +6,21 @@
 - Github Organization
 - Jira Project
 - Actors and Use Cases (Pedro, Rafael)
-- Project Calendar (Pedro)
+- Architecture design (Rafael)
 - State-of-the-art and Context (Dinis, Rafael)
 
 
 #### 21/10 - 28/10
 
 - Requirements gathering (Everyone)
-- Architecture design (Rafae)
+- Project Calendar (Pedro, Eduardo)
 - User Stories (Dinis)
 - Presentation (Everyone)
 
 #### M2-Elaboration — 29/10 - 4/11
 
 - Design Mockups (Dinis, Henrique)
-- Database Diagrams (Pedro, Eduardo)
+- Database Diagrams (Pedro, Eduardo, Rafael)
 
 #### 11/11 - 18/11
 
@@ -30,57 +30,56 @@
 
 #### M3-Construction — 19/11 - 9/12
 
-- MVP Module Inventory
-    - Inventory Management
-    - Inventory Reports
-    - QR Code Scanning
-    - Composite Items
-
- - Core
+- Core
     - Database Models
     - Endpoints
     - Frontend
 
+- MVP Inventory Module
+    - Inventory Management
+    - QR Code Scanning
+    - Composite Items
+
+
 #### 10/12 - 16/12
 
-- MVP Module Financial
-    - Ver o que temos de por
+- MVP Financial Module
+    - Budget
+
+- Presentation
 
 
-#### 10/2 - 24/2
+#### M4-Transition — 10/2 - 24/2
 
-- Ver que module vamos acrescentar
+- Stabilizing and improvements of the MVP
+- Reporting Module
 
 #### 25/2 - 10/3
 
-- Ver que module vamos acrescentar
+- Membership Management Module
 
-### 24/3- 31/3
-- Ver que module acrescentar
+### 11/3- 24/3
+- Customer Relationship Management Module
 
-### 13/3- 21/4
- - Testing & Bug Fixing
+### 25/3- 21/4
+- Event Management Module
+- Testing & Bug Fixing
 
 ### 22/4- 5/5
-
 - User Testing
 - Apply Improvements
 
-### 6/5- 13/5
-
+### 6/5- 19/5
 - Data collection & analytics
 - Stabilize final product
 
-### 14/5- 17/5
-
+### 20/5- 26/5
 - Create documentation
 
-#### M3-Construction — 18/5 - 19/5
-
+#### 27/5 - 2/6
 - Prepare final presentation
 
-### 6/5- 13/5
-
+### 3/6- 4/6
 - STUDENTS@DETI	
     - Demo
     - Poster
