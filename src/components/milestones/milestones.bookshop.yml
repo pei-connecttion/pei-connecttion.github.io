@@ -1,0 +1,46 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - content_blocks
+  label: Milestones
+  description: Project milestones section with images and links
+  icon: "timeline"
+  tags: ["milestones", "project"]
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  milestones:
+    - text: "M1 - Inception"
+      image: "/images/milestones/milestone_1.jpg"
+      link: "/milestones/m1"
+    - text: "M2 - Elaboration"
+      image: "/images/milestones/milestone_2.jpg"
+      link: "/milestones/m2"
+    - text: "M3 - Construction"
+      image: "/images/milestones/milestone_3.jpg"
+      link: "/milestones/m3"
+    - text: "M4 - Transition"
+      image: "/images/milestones/milestone_4.jpg"
+      link: "/milestones/m4"
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  milestones:
+    type: array
+    fields:
+      - name: text
+        type: text
+        comment: The milestone title text
+      - name: image
+        type: image
+        comment: Image to display for this milestone
+        options:
+          width: 400
+          height: 200
+          resize_style: crop
+      - name: link
+        type: text
+        comment: URL link for this milestone

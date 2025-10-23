@@ -11,7 +11,7 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: home/hero
-    logo: /images/connecttion-logo-blue.png
+    logo: /images/hero/slogan.png
     title: Connecttion
     description: Information System for the Optimization of Processes in Associations
     image: /images/hero/hero-image-2.png
