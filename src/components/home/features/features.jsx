@@ -41,7 +41,7 @@ export default function GlobalFeatures(block) {
           .features .features-content:hover {
             transform: translateY(-8px) !important;
             border-color: #009fba !important;
-            background: #009fba !important;
+            // background: #009fba !important;
             box-shadow: 0 12px 40px rgba(0, 159, 186, 0.15) !important;
           }
           .features .features-content:hover::before {
@@ -57,11 +57,8 @@ export default function GlobalFeatures(block) {
             display: block !important;
             word-break: break-word !important;
             max-width: 100% !important;
-            color: #006B7D !important;
+            color: #009fba !important;
             transition: color 0.3s ease !important;
-          }
-          .features .features-content:hover .features-text {
-            color: white !important;
           }
           .features .section-header h2 {
             font-size: 3.5rem !important;

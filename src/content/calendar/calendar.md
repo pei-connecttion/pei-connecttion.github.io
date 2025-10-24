@@ -45,6 +45,8 @@
 
 - MVP Financial Module
     - Budget
+    - Invoices Storage/Creation
+    - Invoices' File Attachment
 
 - Presentation
 

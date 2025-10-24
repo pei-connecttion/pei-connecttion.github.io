@@ -6,13 +6,7 @@ import { SEO } from "astro-seo";
 import site from "@data/site.json";
 
 export interface SEOProps {
-  page_description: string | null;
-  featured_image: string | null;
-  featured_image_alt: string | null;
   canonical_url: string | null;
-  no_index: boolean | null;
-  open_graph_type: string | null;
-  author_twitter_handle: string | null;
 }
 
 export interface Props {
@@ -25,9 +19,6 @@ const baseUrl = Astro.site;
 const title = Astro.props.title
   ? `${Astro.props.title} | ${site.site_title}`
   : site.site_title;
-const description = seo?.page_description || site.description;
-const image = seo?.featured_image || site.image;
-const image_alt = seo?.featured_image_alt || site.image_alt;
 const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
 ---
 
@@ -39,8 +30,8 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
     <link href="/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="/vendor/phosphor-icons/css/phosphor.css" rel="stylesheet" />
     <link href="/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-    <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
+    <link rel="icon" href="/favicon.svg" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/touch-icon.png" sizes="192x192" />
@@ -48,30 +39,8 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
     <meta name="generator" content={Astro.generator} />
 
     <SEO
-      noindex={seo?.no_index || false}
       title={title}
-      description={description}
       canonical={canonicalURL.toString()}
-      openGraph={{
-        basic: {
-          title: Astro.props.title,
-          url: baseUrl?.toString(),
-          type: `${seo?.open_graph_type || "website"}`,
-          image: image,
-        },
-        optional: {
-          description: description,
-        },
-        image: {
-          url: image,
-          alt: image_alt,
-        },
-      }}
-      twitter={{
-        creator: `${seo?.author_twitter_handle || site.twitter_site}`,
-        site: `${site.twitter_site}`,
-        card: "summary_large_image",
-      }}
     />
   </head>
   <body>
