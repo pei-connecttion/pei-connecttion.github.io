@@ -1,25 +1,30 @@
-import GlanceHover from "../GlanceHover.jsx";
 
 export default function TeamMembers(block) {
   return (
-    <div className="team">
+    <>
+      <style>
+        {`
+          .team-member-thumb {
+            overflow: hidden;
+            transition: transform 0.3s ease;
+          }
+          .team-member-thumb img {
+            transition: transform 0.3s ease;
+            width: 100%;
+            height: auto;
+          }
+          .team-member-thumb:hover img {
+            transform: scale(1.25);
+          }
+        `}
+      </style>
+      <div className="team">
       <div className="container">
         <div className="d-flex flex-wrap justify-content-center gap-4">
           {block.team_members.map((member, i) => (
             <div className="flex-fill" style={{ width: "200px" }} key={i}>
               <div className="team-member">
-                <GlanceHover
-                  width="100%"
-                  height="100%"
-                  background="transparent"
-                  borderRadius="inherit"
-                  borderColor="transparent"
-                  glareColor="#ffffff"
-                  glareOpacity={0.4}
-                  glareAngle={-45}
-                  glareSize={200}
-                  transitionDuration={600}
-                  playOnce={false}
+                <div
                   className="team-member-thumb rounded-box"
                 >
                   <img
@@ -27,7 +32,7 @@ export default function TeamMembers(block) {
                     alt={`${member.name}'s photo`}
                     loading="lazy"
                   />
-                </GlanceHover>
+                </div>
                 <div className="team-member-details text-center">
                   <h3>{member.name}</h3>
                   <div className="d-flex justify-content-center gap-3">
@@ -60,6 +65,7 @@ export default function TeamMembers(block) {
           ))}
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

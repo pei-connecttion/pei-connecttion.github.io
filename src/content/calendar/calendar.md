@@ -1,5 +1,3 @@
-### Calendar
-
 #### M1-Inception — 14/10 - 21/10
 
 - Project Website (Henrique,Eduardo)

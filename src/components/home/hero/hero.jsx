@@ -4,6 +4,28 @@ const md = new MarkdownIt({ html: true });
 export default function HomeHero(block) {
   return (
     <section className="hero-two">
+      <style>{`
+        @media (max-width: 1200px) {
+          .hero-logo { width: 500px !important; }
+          .hero-image { width: 650px !important; }
+        }
+        @media (max-width: 992px) {
+          .hero-logo { width: 400px !important; }
+          .hero-image { width: 550px !important; }
+        }
+        @media (max-width: 768px) {
+          .hero-logo { width: 350px !important; }
+          .hero-image { width: 450px !important; }
+        }
+        @media (max-width: 576px) {
+          .hero-logo { width: 280px !important; }
+          .hero-image { width: 350px !important; }
+        }
+        @media (max-width: 400px) {
+          .hero-logo { width: 240px !important; }
+          .hero-image { width: 300px !important; }
+        }
+      `}</style>
       <div className="container-fluid">
         <div className="row align-items-center">
           <div className="col-lg-6">
@@ -11,7 +33,7 @@ export default function HomeHero(block) {
               <img
                 src={block.logo}
                 alt={block.title}
-                className="mb-4"
+                className="mb-4 hero-logo"
                 style={{
                   width: "600px",
                   height: "auto",
@@ -31,6 +53,7 @@ export default function HomeHero(block) {
               <img
                 src={block.image}
                 alt={block.image_alt}
+                className="hero-image"
                 style={{
                   width: "800px",
                   height: "auto",

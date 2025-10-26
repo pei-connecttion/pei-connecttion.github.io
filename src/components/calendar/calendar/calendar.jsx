@@ -53,7 +53,6 @@ export default function CalendarCalendar(block) {
               .calendar-calendar__tasks { color: #6b7280; }
               .calendar-calendar__tasks ul { margin: 0; padding-left: 18px; }
               @media (max-width: 768px) {
-                .calendar-calendar__date { display: none; }
                 .calendar-calendar__table td { padding: 12px 8px; }
               }
             `}</style>
@@ -106,14 +105,14 @@ export default function CalendarCalendar(block) {
                       <thead>
                         <tr>
                           <th>Milestone</th>
-                          <th>Date (2025)</th>
+                          <th>Date</th>
                           <th>Task List</th>
                         </tr>
                       </thead>
                       <tbody>
                         {entries.map((e, i) => (
                           <tr key={i}>
-                            <td className="calendar-calendar__milestone">{e.title ? <a href="#">{e.title}</a> : ''}</td>
+                            <td className="calendar-calendar__milestone">{e.title ? <a href={`/milestones/${e.title.toLowerCase().match(/m(\d+)/)?.[0] || 'm1'}`}>{e.title}</a> : ''}</td>
                             <td className="calendar-calendar__date">{e.date}</td>
                             <td className="calendar-calendar__tasks">
                               <ul>

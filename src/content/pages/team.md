@@ -21,26 +21,26 @@ content_blocks:
       - name: Eduardo Rosário
         github: https://github.com/eduardojfrosario
         linked_in: https://github.com/eduardojfrosario
-        image: /images/team/1.jpg
+        image: /images/team/eduardo.png
 
       - name: Henrique Lopes
         github: https://github.com/lopes04
         linked_in: https://github.com/lopes04
-        image: /images/team/2.jpg
+        image: /images/team/henrique.png
 
       - name: Pedro Fonseca
         github: https://github.com/Pedro-102005
         linked_in: https://github.com/Pedro-102005
-        image: /images/team/3.jpg
+        image: /images/team/pedro.png
 
       - name: Dinis Cunha
         github: https://github.com/diniscunha20
         linked_in: https://github.com/diniscunha20
-        image: /images/team/4.jpg
+        image: /images/team/dinis.png
 
       - name: Rafael Fernandes
         github: https://github.com/rafaeltorrinhas
         linked_in: https://github.com/rafaeltorrinhas
-        image: /images/team/5.jpg
+        image: /images/team/rafael.png
 
 ---
