@@ -60,7 +60,7 @@ export default function Milestones(block) {
           .features .features-image img {
             width: 100% !important;
             height: 100% !important;
-            object-fit: contain !important;
+            object-fit: cover !important;
             transition: transform 0.3s ease !important;
           }
           .features .features-content:hover .features-image img {
@@ -81,6 +81,18 @@ export default function Milestones(block) {
             word-break: break-word !important;
             max-width: 100% !important;
             margin: 0 !important;
+            color: #333 !important;
+          }
+          .features .features-content {
+            text-decoration: none !important;
+            color: inherit !important;
+          }
+          .features .features-content:hover {
+            text-decoration: none !important;
+            color: inherit !important;
+          }
+          .features .features-content:hover .features-text {
+            color: #009fba !important;
           }
           .features .section-header h2 {
             font-size: 3.5rem !important;

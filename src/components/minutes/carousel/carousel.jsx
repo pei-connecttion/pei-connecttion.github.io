@@ -180,6 +180,151 @@ export default function FeatureCarousel({ title = "Feature Carousel", image = ""
             outline: none;
             box-shadow: 0 0 0 4px rgba(0,159,186,0.12);
           }
+
+          /* Responsive Design */
+          @media (max-width: 992px) {
+            .demo-carousel-container {
+              width: 95%;
+            }
+            .demo-carousel-content-wrapper {
+              padding: 30px;
+            }
+            .demo-carousel-item {
+              min-height: 400px;
+              gap: 20px;
+            }
+            .demo-carousel-item-image {
+              flex: 0 0 40%;
+            }
+            .demo-carousel-item-image img {
+              max-width: 400px;
+            }
+            .demo-carousel-item-title {
+              font-size: 22px;
+            }
+            .demo-carousel-item-description {
+              font-size: 15px;
+            }
+          }
+
+          @media (max-width: 768px) {
+            .demo-carousel-container {
+              width: 98%;
+            }
+            .demo-carousel-content-wrapper {
+              padding: 20px;
+            }
+            .demo-carousel-item {
+              flex-direction: column;
+              min-height: auto;
+              gap: 20px;
+              text-align: center;
+            }
+            .demo-carousel-item-image {
+              flex: none;
+              width: 100%;
+              max-width: 300px;
+              margin: 0 auto;
+            }
+            .demo-carousel-item-image img {
+              max-width: 100%;
+            }
+            .demo-carousel-item-content {
+              padding: 20px 0 0 0;
+            }
+            .demo-carousel-item-title {
+              font-size: 20px;
+              margin-bottom: 16px;
+            }
+            .demo-carousel-item-description {
+              font-size: 14px;
+            }
+            .demo-carousel-nav-btn {
+              width: 35px;
+              height: 35px;
+              font-size: 14px;
+            }
+            .demo-carousel-prev-btn {
+              left: 5px;
+            }
+            .demo-carousel-next-btn {
+              right: 5px;
+            }
+            .demo-carousel-navigation-buttons {
+              margin-top: 15px;
+            }
+            .demo-carousel-nav-button {
+              padding: 8px 14px;
+              font-size: 12px;
+            }
+            .demo-carousel-title-link {
+              padding: 10px 24px;
+              font-size: 14px;
+            }
+          }
+
+          @media (max-width: 576px) {
+            .demo-carousel-section {
+              padding: 0 0 60px 0;
+            }
+            .demo-carousel-content-wrapper {
+              padding: 15px;
+              border-radius: 16px;
+            }
+            .demo-carousel-item {
+              gap: 15px;
+            }
+            .demo-carousel-item-image {
+              max-width: 250px;
+            }
+            .demo-carousel-item-title {
+              font-size: 18px;
+              margin-bottom: 12px;
+            }
+            .demo-carousel-item-description {
+              font-size: 13px;
+              line-height: 1.5;
+            }
+            .demo-carousel-nav-btn {
+              width: 32px;
+              height: 32px;
+              font-size: 12px;
+            }
+            .demo-carousel-navigation-buttons {
+              gap: 8px;
+              margin-top: 12px;
+            }
+            .demo-carousel-nav-button {
+              padding: 6px 12px;
+              font-size: 11px;
+              border-radius: 20px;
+            }
+            .demo-carousel-title-link {
+              padding: 8px 20px;
+              font-size: 13px;
+              border-radius: 20px;
+            }
+          }
+
+          @media (max-width: 400px) {
+            .demo-carousel-item-image {
+              max-width: 200px;
+            }
+            .demo-carousel-item-title {
+              font-size: 16px;
+            }
+            .demo-carousel-item-description {
+              font-size: 12px;
+            }
+            .demo-carousel-nav-button {
+              padding: 5px 10px;
+              font-size: 10px;
+            }
+            .demo-carousel-title-link {
+              padding: 6px 16px;
+              font-size: 12px;
+            }
+          }
         `
       }} />
       
@@ -202,7 +347,7 @@ export default function FeatureCarousel({ title = "Feature Carousel", image = ""
                           <img src={item.image || image} alt={item.title} />
                         </div>
                         <div className="demo-carousel-item-content">
-                        <div className="demo-carousel-item-title"><a href={item.link || '#'} className="demo-carousel-title-link">{item.title}</a></div>
+                        <div className="demo-carousel-item-title"><a href={item.link || '#'} target="_blank" className="demo-carousel-title-link">{item.title}</a></div>
                         <p className="demo-carousel-item-description">{item.description}</p>
                       </div>
                       </div>

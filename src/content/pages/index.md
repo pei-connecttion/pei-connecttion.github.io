@@ -14,7 +14,7 @@ content_blocks:
     logo: /images/hero/slogan.png
     title: Connecttion
     description: Information System for the Optimization of Processes in Associations
-    image: /images/hero/mockup.jpg
+    image: /images/hero/mockup.png
     image_alt: Mockup
     button:
       text: Try This Free

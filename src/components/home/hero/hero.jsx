@@ -10,20 +10,20 @@ export default function HomeHero(block) {
           .hero-image { width: 650px !important; }
         }
         @media (max-width: 992px) {
-          .hero-logo { width: 400px !important; }
+          .hero-logo { width: 80% !important; }
           .hero-image { width: 550px !important; }
         }
         @media (max-width: 768px) {
-          .hero-logo { width: 350px !important; }
+          .hero-logo { width: 80%!important; }
           .hero-image { width: 450px !important; }
         }
         @media (max-width: 576px) {
-          .hero-logo { width: 280px !important; }
-          .hero-image { width: 350px !important; }
+          .hero-logo { width: 100% !important; }
+          .hero-image { width: 100% !important; }
         }
         @media (max-width: 400px) {
-          .hero-logo { width: 240px !important; }
-          .hero-image { width: 300px !important; }
+          .hero-logo { width: 100% !important; }
+          .hero-image { width: 100% !important; }
         }
       `}</style>
       <div className="container-fluid">
