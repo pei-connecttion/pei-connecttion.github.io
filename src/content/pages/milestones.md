@@ -16,7 +16,7 @@ content_blocks:
   - _bookshop_name: milestones
     milestones:
       - text: "M1 - Inception"
-        image: /images/milestones/milestone_1.jpg
+        image: /images/milestones/m1/logo.jpg
         link: /milestones/m1
       - text: "M2 - Elaboration" 
         image: /images/milestones/milestone_2.jpg
