@@ -56,10 +56,10 @@
 
 #### 25/2 - 10/3
 
-- Membership Management Module
+- Customer Relationship Management Module
 
 ### 11/3- 24/3
-- Customer Relationship Management Module
+- Notifications Module
 
 ### 25/3- 21/4
 - Event Management Module
