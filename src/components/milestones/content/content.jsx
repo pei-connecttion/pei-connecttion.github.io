@@ -6,9 +6,15 @@ export default function MilestonesContent(block) {
     <section className="documentation-hero">
       <style>{`
         .documentation-hero-content {
-          max-width: 1200px;
+          max-width: 1400px;
           margin: 1.6em auto;
-          padding: 0 20px;
+          padding: 0 40px;
+        }
+        .documentation-hero-content img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         .documentation-hero-content a {
           color: #009fba;
@@ -18,6 +24,11 @@ export default function MilestonesContent(block) {
         .documentation-hero-content a:hover {
           color: #cee3eb;
           text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+          .documentation-hero-content {
+            padding: 0 20px;
+          }
         }
      `}</style>
       <div className="documentation-hero-content">
